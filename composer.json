@@ -1,0 +1,23 @@
+{
+    "name":        "corpsee/nameless-utilities",
+    "description": "Nameless utilities package",
+    "license":     "GPL-3.0",
+    "authors":     [
+        {
+            "name":  "Corpsee",
+            "email": "poisoncorpsee@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nameless\\Utilities\\Tests\\": "tests/src"
+        },
+        "files": ["src/Strings.php"]
+    },
+    "require": {
+        "php":     ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*"
+    }
+}
