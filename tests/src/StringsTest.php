@@ -8,4 +8,9 @@ class StringsTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue(\Nameless\Utilities\Strings\startWith('example', 'exa'));
     }
+    
+    public function testEndWith()
+    {
+        $this->assertTrue(\Nameless\Utilities\Strings\endWith('example', 'xample'));
+    }
 }
