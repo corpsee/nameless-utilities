@@ -33,4 +33,9 @@ class StringsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(\Nameless\Utilities\Strings\cutWords('simple example', 1), 'simple...');
         $this->assertEquals(\Nameless\Utilities\Strings\cutWords('очень простой пример', 2), 'очень простой...');
     }
+    
+    public function testTransliterate()
+    {
+        $this->assertEquals(\Nameless\Utilities\Strings\transliterate('привет'), 'privet');
+    }
 }
