@@ -36,6 +36,7 @@ class StringsTest extends \PHPUnit_Framework_TestCase
     
     public function testTransliterate()
     {
-        $this->assertEquals(\Nameless\Utilities\Strings\transliterate('привет'), 'privet');
+        $this->assertEquals(\Nameless\Utilities\Strings\transliterate('очень простой пример'), 'ochen prostoj primer');
+        $this->assertEquals(\Nameless\Utilities\Strings\transliterate('velmi jednoduchý příklad'), 'velmi jednoduchy priklad');
     }
 }
