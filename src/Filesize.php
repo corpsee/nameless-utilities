@@ -22,7 +22,17 @@ function humanize($bytes, $decimals = 2)
         'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'
     ];
 
-    $power = (integer)floor((strlen($bytes) - 1) / 3);
+    $power = 0;
+    $temp  = $bytes;
+    foreach ($sizes as $size) {
+        if ($temp >= 1024) {
+            $temp /= 1024;
+            $power++;
+        } else {
+            break;
+        }
+    }
+
     if (isset($sizes[$power])) {
         $humanize = sprintf("%.{$decimals}f", ($bytes / pow(1024, $power))) . $sizes[$power];
     } else {
@@ -46,11 +56,14 @@ function unhumanize($size_string)
         'GB' => pow(1024, 3),
         'TB' => pow(1024, 4),
         'PB' => pow(1024, 5),
+        'EB' => pow(1024, 6),
+        'ZB' => pow(1024, 7),
+        'YB' => pow(1024, 8),
     ];
 
     $bytes = (float)$size_string;
 
-    if (preg_match('#([KMGTP]?B)$#si', $size_string, $matches) && !empty($sizes[$matches[1]])) {
+    if (preg_match('#([KMGTPEZY]?B)$#si', $size_string, $matches) && !empty($sizes[$matches[1]])) {
         $bytes = $bytes * $sizes[$matches[1]];
     }
 
