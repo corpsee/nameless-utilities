@@ -12,7 +12,11 @@
         "psr-4": {
             "Nameless\\Utilities\\Tests\\": "tests/src"
         },
-        "files": ["src/Strings.php"]
+        "files": [
+            "src/Strings.php",
+            "src/Filesize.php",
+            "src/Datetime.php"
+        ]
     },
     "require": {
         "php":     ">=5.4.0"
