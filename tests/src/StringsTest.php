@@ -39,4 +39,10 @@ class StringsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(\Nameless\Utilities\Strings\transliterate('очень простой пример'), 'ochen prostoj primer');
         $this->assertEquals(\Nameless\Utilities\Strings\transliterate('velmi jednoduchý příklad'), 'velmi jednoduchy priklad');
     }
+    
+    public function testStandardize()
+    {
+        $this->assertEquals(\Nameless\Utilities\Strings\standardize('очень простой   Пример', '-'), 'ochen-prostoj-primer');
+        $this->assertEquals(\Nameless\Utilities\Strings\standardize(' Velmi:;+ Jednoduchý___příklad  '), 'velmi_jednoduchy_priklad');
+    }
 }
