@@ -1,5 +1,5 @@
-Nameless utilities package
-======================
+Nameless utilities
+==================
 
 Utilities component compliant with PSR-1, PSR-2 and PSR-4 for PHP 5.4+.
 
@@ -15,7 +15,4 @@ Tests
 License
 -------
 
-The Nameless utilities package is open source software licensed under the GPL-3.0 license.
-
-
-
+The Nameless utilities is open source software licensed under the GPL-3.0 license.
