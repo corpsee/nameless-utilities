@@ -45,4 +45,10 @@ class StringsTest extends \PHPUnit_Framework_TestCase
         self::assertEquals(\Nameless\Utilities\Strings\standardize('очень простой   Пример', '-'), 'ochen-prostoj-primer');
         self::assertEquals(\Nameless\Utilities\Strings\standardize(' Velmi:;+ Jednoduchý___příklad  '), 'velmi_jednoduchy_priklad');
     }
+
+    public function testToArray()
+    {
+        self::assertEquals(\Nameless\Utilities\Strings\toArray('1,2,3,'), ['1', '2', '3']);
+        self::assertEquals(\Nameless\Utilities\Strings\toArray('one,,,two,tree,'), ['one', 'two', 'tree']);
+    }
 }

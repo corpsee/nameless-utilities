@@ -13,62 +13,57 @@ namespace Nameless\Utilities\Strings;
 /**
  * @param string $haystack
  * @param string $needle
- * @param string $encoding
  *
  * @return boolean
  */
-function startWith($haystack, $needle, $encoding = 'UTF-8') {
-    return ($needle === mb_substr($haystack, 0, mb_strlen($needle, $encoding), $encoding));
+function startWith($haystack, $needle) {
+    return ($needle === mb_substr($haystack, 0, mb_strlen($needle, 'UTF-8'), 'UTF-8'));
 }
 
 /**
  * @param string $haystack
  * @param string $needle
- * @param string $encoding
  *
  * @return boolean
  */
-function endWith($haystack, $needle, $encoding = 'UTF-8') {
-    return ($needle === mb_substr($haystack, -mb_strlen($needle, $encoding), null, $encoding));
+function endWith($haystack, $needle) {
+    return ($needle === mb_substr($haystack, -mb_strlen($needle, 'UTF-8'), null, 'UTF-8'));
 }
 
 /**
  * @param string $haystack
  * @param string $needle
- * @param string $encoding
  *
  * @return boolean
  */
-function contains($haystack, $needle, $encoding = 'UTF-8') {
-    return mb_strpos($haystack, $needle, null, $encoding) !== false;
+function contains($haystack, $needle) {
+    return mb_strpos($haystack, $needle, null, 'UTF-8') !== false;
 }
 
 /**
  * @param string  $string
  * @param integer $limit
  * @param string  $append
- * @param string  $encoding
  *
  * @return string
  */
-function cut($string, $limit = 25, $append = '...', $encoding = 'UTF-8') {
-    if (mb_strlen($string, $encoding) <= $limit) {
+function cut($string, $limit = 25, $append = '...') {
+    if (mb_strlen($string, 'UTF-8') <= $limit) {
         return $string;
     }
-    return rtrim(mb_substr($string, 0, $limit, $encoding)) . $append;
+    return rtrim(mb_substr($string, 0, $limit, 'UTF-8')) . $append;
 }
 
 /**
  * @param string  $string
  * @param integer $limit
  * @param string  $append
- * @param string  $encoding
  *
  * @return string
  */
-function cutWords($string, $limit = 25, $append = '...', $encoding = 'UTF-8') {
+function cutWords($string, $limit = 25, $append = '...') {
     preg_match('/^\s*+(?:\S++\s*+){1,' . $limit . '}/u', $string, $matches);
-    if (!isset($matches[0]) || mb_strlen($string, $encoding) === mb_strlen($matches[0], $encoding)) {
+    if (!isset($matches[0]) || mb_strlen($string, 'UTF-8') === mb_strlen($matches[0], 'UTF-8')) {
         return $string;
     }
     return rtrim($matches[0]) . $append;
@@ -253,3 +248,22 @@ function standardize($string, $separator = '_')
     return preg_replace(['#[-_\s]+#', '#[^' . $separator . '\w\d]+#i'], [$separator, ''], $string);
 }
 
+/**
+ * @param string $string
+ * @param string $delimiter
+ *
+ * @return array
+ */
+function toArray($string, $delimiter = ',')
+{
+    $array_temp = explode($delimiter, $string);
+    $array      = [];
+    foreach ($array_temp as $item) {
+        $item_clear = trim($item);
+        if ($item_clear) {
+            $array[] = $item_clear;
+        }
+    }
+
+    return $array;
+}
