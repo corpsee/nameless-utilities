@@ -15,7 +15,8 @@
         "files": [
             "src/Strings.php",
             "src/Filesize.php",
-            "src/Datetime.php"
+            "src/Datetime.php",
+            "src/Massive.php"
         ]
     },
     "require": {
