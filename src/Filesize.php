@@ -13,23 +13,20 @@ namespace Nameless\Utilities\Filesize;
 /**
  * @param integer $bytes
  * @param integer $decimals
+ * @param array   $sizes
  *
  * @return string
  */
-function humanize($bytes, $decimals = 2)
+function humanize($bytes, $decimals = 2, array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'])
 {
-    $sizes = [
-        'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'
-    ];
-
     $power = 0;
     $temp  = $bytes;
     foreach ($sizes as $size) {
-        if ($temp >= 1024) {
+        if ($temp < 1024) {
+            break;
+        } else {
             $temp /= 1024;
             $power++;
-        } else {
-            break;
         }
     }
 
@@ -44,27 +41,33 @@ function humanize($bytes, $decimals = 2)
 
 /**
  * @param string $size_string
+ * @param array  $sizes
  *
  * @return integer
  */
-function unhumanize($size_string)
+function unhumanize($size_string, array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'])
 {
-    $sizes = [
-        'B'  => 1,
-        'KB' => 1024,
-        'MB' => pow(1024, 2),
-        'GB' => pow(1024, 3),
-        'TB' => pow(1024, 4),
-        'PB' => pow(1024, 5),
-        'EB' => pow(1024, 6),
-        'ZB' => pow(1024, 7),
-        'YB' => pow(1024, 8),
-    ];
+    $size_string = trim($size_string);
+
+    $sizes_power = [];
+    foreach ($sizes as $index => $size) {
+        if (0 !== $index) {
+            $sizes_power[$size] = pow(1024, $index);
+        } else {
+            $sizes_power[$size] = 1;
+        }
+
+    }
 
     $bytes = (float)$size_string;
 
-    if (preg_match('#([KMGTPEZY]?B)$#si', $size_string, $matches) && !empty($sizes[$matches[1]])) {
-        $bytes = $bytes * $sizes[$matches[1]];
+    $pattern = implode('|', $sizes);
+    if (
+        preg_match('#(' . $pattern . ')$#si', $size_string, $matches) &&
+        $matches[1] &&
+        isset($sizes_power[$matches[1]])
+    ) {
+        $bytes *= $sizes_power[$matches[1]];
     }
 
     return (integer)round($bytes);
