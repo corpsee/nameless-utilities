@@ -16,8 +16,17 @@ namespace Nameless\Utilities\Datetime;
  *
  * @return string
  */
-function humanize($seconds, $format = [['second', 'seconds'], ['minute', 'minutes'], ['hour', 'hours'], ['day', 'days'], ['month', 'months'], ['year', 'years']])
-{
+function humanize(
+    $seconds,
+    $format = [
+        ['second', 'seconds'],
+        ['minute', 'minutes'],
+        ['hour', 'hours'],
+        ['day', 'days'],
+        ['month', 'months'],
+        ['year', 'years']
+    ]
+) {
     if ($seconds < 1) {
         return '0 ' . $format[0];
     }

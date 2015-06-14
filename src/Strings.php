@@ -16,7 +16,8 @@ namespace Nameless\Utilities\Strings;
  *
  * @return boolean
  */
-function startWith($haystack, $needle) {
+function startWith($haystack, $needle)
+{
     return ($needle === mb_substr($haystack, 0, mb_strlen($needle, 'UTF-8'), 'UTF-8'));
 }
 
@@ -26,7 +27,8 @@ function startWith($haystack, $needle) {
  *
  * @return boolean
  */
-function endWith($haystack, $needle) {
+function endWith($haystack, $needle)
+{
     return ($needle === mb_substr($haystack, -mb_strlen($needle, 'UTF-8'), null, 'UTF-8'));
 }
 
@@ -36,7 +38,8 @@ function endWith($haystack, $needle) {
  *
  * @return boolean
  */
-function contains($haystack, $needle) {
+function contains($haystack, $needle)
+{
     return mb_strpos($haystack, $needle, null, 'UTF-8') !== false;
 }
 
@@ -47,7 +50,8 @@ function contains($haystack, $needle) {
  *
  * @return string
  */
-function cut($string, $limit = 25, $append = '...') {
+function cut($string, $limit = 25, $append = '...')
+{
     if (mb_strlen($string, 'UTF-8') <= $limit) {
         return $string;
     }
@@ -61,7 +65,8 @@ function cut($string, $limit = 25, $append = '...') {
  *
  * @return string
  */
-function cutWords($string, $limit = 25, $append = '...') {
+function cutWords($string, $limit = 25, $append = '...')
+{
     preg_match('/^\s*+(?:\S++\s*+){1,' . $limit . '}/u', $string, $matches);
     if (!isset($matches[0]) || mb_strlen($string, 'UTF-8') === mb_strlen($matches[0], 'UTF-8')) {
         return $string;

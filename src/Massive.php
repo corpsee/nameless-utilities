@@ -16,7 +16,8 @@ namespace Nameless\Utilities\Massive;
  *
  * @return string
  */
-function toString(array $array, $delimiter = ', ') {
+function toString(array $array, $delimiter = ', ')
+{
     if (!$array) {
         return '';
     }
