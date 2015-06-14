@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Nameless utilities package
+ * Nameless utilities
  *
  * @copyright Copyright 2015, Corpsee.
  * @license   https://github.com/corpsee/nameless-utilities/blob/master/LICENSE
