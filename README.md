@@ -1,7 +1,7 @@
 Nameless utilities
 ==================
 
-Utilities component compliant with PSR-1, PSR-2 and PSR-4 for PHP 5.4+.
+Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer for PHP 5.4+.
 
 Installation
 ------------
