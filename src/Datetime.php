@@ -10,24 +10,36 @@
 
 namespace Nameless\Utilities\Datetime;
 
-function humanize($second, $format = '%s years %s months %s days %s hours %s minutes % seconds') {
-    $result = '';
-
-    if ($second >= 3600) {
-        $result .= (floor($second / 3600) < 10 ? '0' : '') . floor($second / 3600) . ':';
-        $second = ($second % 3600);
-    } else {
-        $result .= '00:';
+/**
+ * @param integer $seconds
+ * @param array   $format
+ *
+ * @return string
+ */
+function humanize($seconds, $format = [['second', 'seconds'], ['minute', 'minutes'], ['hour', 'hours'], ['day', 'days'], ['month', 'months'], ['year', 'years']])
+{
+    if ($seconds < 1) {
+        return '0 ' . $format[0];
     }
 
-    if ($second >= 60) {
-        $result .= (floor($second / 60) < 10 ? '0' : '') . floor($second / 60) . ':';
-        $second = ($second % 60);
-    } else {
-        $result .= '00:';
+    $periods = [
+        365 * 24 * 60 * 60 => 5,
+        30 * 24 * 60 * 60  => 4,
+        24 * 60 * 60       => 3,
+        60 * 60            => 2,
+        60                 => 1,
+        1                  => 0
+    ];
+
+    $humanized = '';
+    foreach ($periods as $secs => $index) {
+        $count   = $seconds / $secs;
+        if ($count >= 1) {
+            $count     = (integer)round($count);
+            $seconds   -= $count * $secs;
+            $humanized .= $count . ' ' . ($count > 1 ? $format[$index][1] : $format[$index][0]) . ' ';
+        }
     }
 
-    $result .= ($second < 10 ? '0' : '' ) . $second;
-
-    return $result;
+    return rtrim($humanized);
 }
