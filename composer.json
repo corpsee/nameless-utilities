@@ -16,7 +16,7 @@
       "src/Strings.php",
       "src/Filesize.php",
       "src/Datetime.php",
-      "src/Massive.php",
+      "src/ArrayHelper.php",
       "src/Path.php",
       "src/Url.php"
     ]

@@ -8,7 +8,7 @@
  * @link      https://github.com/corpsee/nameles-utilities
  */
 
-namespace Nameless\Utilities\Massive;
+namespace Nameless\Utilities\ArrayHelper;
 
 /**
  * @param array  $array
