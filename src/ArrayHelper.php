@@ -3,30 +3,39 @@
 /**
  * Nameless utilities
  *
+ * @package   Nameless utilities
  * @copyright Copyright 2015, Corpsee.
  * @license   https://github.com/corpsee/nameless-utilities/blob/master/LICENSE
  * @link      https://github.com/corpsee/nameles-utilities
  */
 
-namespace Nameless\Utilities\ArrayHelper;
+namespace Nameless\Utilities;
 
 /**
- * @param array  $array
- * @param string $delimiter
+ * Class ArrayHelper
  *
- * @return string
+ * @author Corpsee <poisoncorpsee@gmail.com>
  */
-function toString(array $array, $delimiter = ', ')
+class ArrayHelper
 {
-    if (!$array) {
-        return '';
-    }
-
-    foreach ($array as $key => $value) {
-        if (!$value) {
-            unset($array[$key]);
+    /**
+     * @param array  $array
+     * @param string $delimiter
+     *
+     * @return string
+     */
+    public static function toString(array $array, $delimiter = ', ')
+    {
+        if (!$array) {
+            return '';
         }
-    }
 
-    return implode($delimiter, $array);
+        foreach ($array as $key => $value) {
+            if (!$value) {
+                unset($array[$key]);
+            }
+        }
+
+        return implode($delimiter, $array);
+    }
 }

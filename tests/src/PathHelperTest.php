@@ -2,13 +2,15 @@
 
 namespace Nameless\Utilities\Tests;
 
-class PathTest extends \PHPUnit_Framework_TestCase
+use Nameless\Utilities\PathHelper;
+
+class PathHelperTest extends \PHPUnit_Framework_TestCase
 {
     public function testToUrl()
     {
         self::assertEquals(
             '/path/to/url',
-            \Nameless\Utilities\Path\toURL(
+            PathHelper::toURL(
                 '/var/www/example.com/public/path/to/url',
                 '/var/www/example.com/public/'
             )
@@ -16,7 +18,7 @@ class PathTest extends \PHPUnit_Framework_TestCase
 
         self::assertEquals(
             '/path/to/url',
-            \Nameless\Utilities\Path\toURL(
+            PathHelper::toURL(
                 '/var/www/example.com/public/path/to/url',
                 '/var/www/example.com/public/'
             )
@@ -24,7 +26,7 @@ class PathTest extends \PHPUnit_Framework_TestCase
 
         self::assertEquals(
             '/path/to/url',
-            \Nameless\Utilities\Path\toURL(
+            PathHelper::toURL(
                 '/var/www/example.com/public/path/to/url',
                 '/var/www/example.com/public'
             )
@@ -32,7 +34,7 @@ class PathTest extends \PHPUnit_Framework_TestCase
 
         self::assertEquals(
             '/path/to/url',
-            \Nameless\Utilities\Path\toURL(
+            PathHelper::toURL(
                 'C:\www\example.com\public\path\to\url',
                 'C:\www\example.com\public\\'
             )
@@ -40,7 +42,7 @@ class PathTest extends \PHPUnit_Framework_TestCase
 
         self::assertEquals(
             '/path/to/url',
-            \Nameless\Utilities\Path\toURL(
+            PathHelper::toURL(
                 '/var/www/example.com/public/path/to/url',
                 '\var\www\example.com\public'
             )

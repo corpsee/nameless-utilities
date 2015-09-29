@@ -10,19 +10,13 @@
   ],
   "autoload": {
     "psr-4": {
+      "Nameless\\Utilities\\":        "src",
       "Nameless\\Utilities\\Tests\\": "tests/src"
-    },
-    "files": [
-      "src/Strings.php",
-      "src/Filesize.php",
-      "src/Datetime.php",
-      "src/ArrayHelper.php",
-      "src/Path.php",
-      "src/Url.php"
-    ]
+    }
   },
   "require": {
-    "php": ">=5.4.0"
+    "php":          ">=5.4.0",
+    "ext-mbstring": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.6.*"
