@@ -25,8 +25,11 @@ class FileSizeHelper
      *
      * @return string
      */
-    public static function humanize($bytes, $decimals = 2, array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'])
-    {
+    public static function humanize(
+        $bytes,
+        $decimals = 2,
+        array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    ) {
         $power = 0;
         $temp  = $bytes;
         foreach ($sizes as $size) {
@@ -53,8 +56,10 @@ class FileSizeHelper
      *
      * @return integer
      */
-    public static function unhumanize($size_string, array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'])
-    {
+    public static function unhumanize(
+        $size_string,
+        array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    ) {
         $size_string = trim($size_string);
 
         $sizes_power = [];
@@ -64,7 +69,6 @@ class FileSizeHelper
             } else {
                 $sizes_power[$size] = 1;
             }
-
         }
 
         $bytes = (float)$size_string;
