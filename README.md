@@ -122,7 +122,7 @@ Tests
 You can run the unit tests with the following commands:
 
 ```bash
-cd path/to/nameless-debug
+cd path/to/nameless-utilities
 ./vendor/bin/phpunit -c ./phpunit.xml
 ```
 
