@@ -31,6 +31,92 @@ php composer.phar install
 Usage
 -----
 
+###ArrayHelper
+
+```php
+use Nameless\Utilities\ArrayHelper;
+
+echo ArrayHelper::toString([1, 2, 3]); // Prints '1, 2, 3', ', ' is default separator
+echo ArrayHelper::toString([1, 2, 3], ':'); // Prints '1:2:3'
+
+$array = [
+    'one'   => 1,
+    'two'   => 2,
+    'three' => 3,
+];
+echo ArrayHelper::get($array, 'four', 4); // Prints '4' (4)
+```
+
+###DateTimeHelper
+
+```php
+use Nameless\Utilities\DateTimeHelper;
+
+echo DateTimeHelper::humanize(121); // Prints '2 minute 1 seconds'
+```
+
+Usage with localization/alternative labels:
+
+```php
+use Nameless\Utilities\DateTimeHelper;
+
+$localization = [
+    ['сек.', 'сек.'],
+    ['мин.', 'мин.'],
+    ['ч.', 'ч.'],
+    ['д.', 'д.'],
+    ['мес.', 'мес.'],
+    ['г.', 'г.']
+];
+
+echo DateTimeHelper::humanize(121, $localization); // Prints '2 мин. 1 сек.'
+```
+
+###FileSizeHelper
+
+```php
+use Nameless\Utilities\FileSizeHelper;
+
+echo FileSizeHelper::humanize(1000000000); // Prints '953.67MB'
+echo FileSizeHelper::unhumanize('954MB');  // Prints '1000341504' (bytes)
+```
+
+###PathHelper
+
+```php
+use Nameless\Utilities\PathHelper;
+
+echo PathHelper::toURL('/base/path/to/url', '/base'); // Prints '/path/to/url'
+```
+
+###StringHelper
+
+```php
+use Nameless\Utilities\StringHelper;
+
+var_dump(StringHelper::startWith('example', 'exa'));  // Prints true
+var_dump(StringHelper::endWith('example', 'mplee'));  // Prints true
+var_dump(StringHelper::contains('example', 'xampl')); // Prints true
+
+echo StringHelper::cut('example', 6);             // Prints 'exampl...', '...' is default suffix
+echo StringHelper::cutWords('simple example', 1); // Prints 'example...', '...' is default suffix
+
+echo StringHelper::transliterate('очень простой пример');     // Prints transliterated 'ochen prostoj primer'
+echo StringHelper::standardize('очень простой  Пример');      // Prints standardizated 'ochen_prostoj_primer', '_' is default words separator
+echo StringHelper::standardize('очень простой  Пример', '-'); // Prints 'ochen-prostoj-primer', use '-' for slugify string
+
+var_dump(StringHelper::toArray('1,2,3,')); // Prints Array ['1', '2', '3'], ',' is default separator
+```
+
+###UrlHelper
+
+```php
+use Nameless\Utilities\UrlHelper;
+
+echo UrlHelper::toPath('/path/to/url', '/base'); // Prints '/base/path/to/url'
+```
+
+
 Tests
 -----
 

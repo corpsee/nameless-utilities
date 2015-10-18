@@ -19,6 +19,20 @@ namespace Nameless\Utilities;
 class ArrayHelper
 {
     /**
+     * @param array          $array
+     * @param string|integer $key
+     * @param mixed          $default
+     *
+     * @return mixed
+     */
+    public static function get(array $array, $key, $default = null)
+    {
+        return isset($array[$key])
+            ? $array[$key]
+            : $default;
+    }
+
+    /**
      * @param array  $array
      * @param string $delimiter
      *
