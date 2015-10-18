@@ -116,7 +116,6 @@ use Nameless\Utilities\UrlHelper;
 echo UrlHelper::toPath('/path/to/url', '/base'); // Prints '/base/path/to/url'
 ```
 
-
 Tests
 -----
 
