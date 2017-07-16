@@ -32,7 +32,8 @@ class FileSizeHelper
     ) {
         $power = 0;
         $temp  = $bytes;
-        foreach ($sizes as $size) {
+        $count = count($sizes);
+        for ($i = 0; $i < $count; $i++) {
             if ($temp < 1024) {
                 break;
             } else {
@@ -74,8 +75,7 @@ class FileSizeHelper
         $bytes = (float)$size_string;
 
         $pattern = implode('|', $sizes);
-        if (
-            preg_match('#(' . $pattern . ')$#si', $size_string, $matches) &&
+        if (preg_match('#(' . $pattern . ')$#si', $size_string, $matches) &&
             $matches[1] &&
             isset($sizes_power[$matches[1]])
         ) {
