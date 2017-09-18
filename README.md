@@ -31,7 +31,7 @@ php composer.phar install
 Usage
 -----
 
-###ArrayHelper
+### ArrayHelper
 
 ```php
 use Nameless\Utilities\ArrayHelper;
@@ -47,7 +47,7 @@ $array = [
 echo ArrayHelper::get($array, 'four', 4); // Prints '4' (4)
 ```
 
-###DateTimeHelper
+### DateTimeHelper
 
 ```php
 use Nameless\Utilities\DateTimeHelper;
@@ -72,7 +72,7 @@ $localization = [
 echo DateTimeHelper::humanize(121, $localization); // Prints '2 мин. 1 сек.'
 ```
 
-###FileSizeHelper
+### FileSizeHelper
 
 ```php
 use Nameless\Utilities\FileSizeHelper;
@@ -81,7 +81,7 @@ echo FileSizeHelper::humanize(1000000000); // Prints '953.67MB'
 echo FileSizeHelper::unhumanize('954MB');  // Prints '1000341504' (bytes)
 ```
 
-###PathHelper
+### PathHelper
 
 ```php
 use Nameless\Utilities\PathHelper;
@@ -89,7 +89,7 @@ use Nameless\Utilities\PathHelper;
 echo PathHelper::toURL('/base/path/to/url', '/base'); // Prints '/path/to/url'
 ```
 
-###StringHelper
+### StringHelper
 
 ```php
 use Nameless\Utilities\StringHelper;
@@ -108,7 +108,7 @@ echo StringHelper::standardize('очень простой  Пример', '-'); 
 var_dump(StringHelper::toArray('1,2,3,')); // Prints Array ['1', '2', '3'], ',' is default separator
 ```
 
-###UrlHelper
+### UrlHelper
 
 ```php
 use Nameless\Utilities\UrlHelper;
