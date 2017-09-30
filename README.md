@@ -9,7 +9,7 @@
 Nameless utilities
 ==================
 
-Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer for PHP.
+PHP Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer.
 
 Installation
 ------------
