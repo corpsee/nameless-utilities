@@ -1,6 +1,6 @@
 {
   "name":              "corpsee/nameless-utilities",
-  "description":       "Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer for PHP.",
+  "description":       "PHP Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer",
   "minimum-stability": "stable",
   "type":              "library",
   "keywords":          ["php", "utilities", "helpers", "humanize", "transliterate", "standardize", "url"],
