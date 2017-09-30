@@ -8,16 +8,16 @@
 Nameless utilities
 ==================
 
-Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer for PHP 5.4+.
+Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer for PHP.
 
 Installation
 ------------
 
-You can install Nameless utilities by composer. Add following code to "require" or "require-dev" section of the composer.json:
+You can install Nameless utilities by composer. Add following code to "require" section of the `composer.json`:
 
-```javascript
+```json
 "require": {
-    "corpsee/nameless-utilities": "1.0.*"
+    "corpsee/nameless-utilities": "<version>"
 }
 ```
 
@@ -25,7 +25,7 @@ And install dependencies using the Composer:
 
 ```bash
 cd path/to/your-project
-php composer.phar install
+composer install
 ```
 
 Usage
@@ -52,7 +52,7 @@ echo ArrayHelper::get($array, 'four', 4); // Prints '4' (4)
 ```php
 use Nameless\Utilities\DateTimeHelper;
 
-echo DateTimeHelper::humanize(121); // Prints '2 minute 1 seconds'
+echo DateTimeHelper::humanize(121.001); // Prints '2 minute 1 second 1 millisecond'
 ```
 
 Usage with localization/alternative labels:
@@ -61,15 +61,17 @@ Usage with localization/alternative labels:
 use Nameless\Utilities\DateTimeHelper;
 
 $localization = [
-    ['сек.', 'сек.'],
-    ['мин.', 'мин.'],
-    ['ч.', 'ч.'],
-    ['д.', 'д.'],
-    ['мес.', 'мес.'],
-    ['г.', 'г.']
+    ['мкс', 'мкс'],
+    ['мс', 'мс'],
+    ['с', 'с'],
+    ['мин', 'мин'],
+    ['ч', 'ч'],
+    ['д', 'д'],
+    ['мес', 'мес'],
+    ['г', 'г'],
 ];
 
-echo DateTimeHelper::humanize(121, $localization); // Prints '2 мин. 1 сек.'
+echo DateTimeHelper::humanize(121, $localization); // Prints '2 мин 1 с'
 ```
 
 ### FileSizeHelper
@@ -123,7 +125,7 @@ You can run the unit tests with the following commands:
 
 ```bash
 cd path/to/nameless-utilities
-./vendor/bin/phpunit -c ./phpunit.xml
+./vendor/bin/phpunit
 ```
 
 License

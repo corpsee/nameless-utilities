@@ -8,17 +8,18 @@ class FileSizeHelperTest extends \PHPUnit_Framework_TestCase
 {
     public function testHumanize()
     {
-        self::assertEquals(FileSizeHelper::humanize(512), '512.00B');
-        self::assertEquals(FileSizeHelper::humanize(1024, 0), '1KB');
-        self::assertEquals(FileSizeHelper::humanize(1000000000), '953.67MB');
-        self::assertEquals(FileSizeHelper::humanize(1000000000, 0), '954MB');
-        self::assertEquals(FileSizeHelper::humanize(1000000000, 4), '953.6743MB');
+        self::assertEquals('512.00B', FileSizeHelper::humanize(512));
+        self::assertEquals('1KB', FileSizeHelper::humanize(1024, 0));
+        self::assertEquals('953.67MB', FileSizeHelper::humanize(1000000000));
+        self::assertEquals('954MB', FileSizeHelper::humanize(1000000000, 0));
+        self::assertEquals('953.6743MB', FileSizeHelper::humanize(1000000000, 4));
+        self::assertEquals('827180612553YB', FileSizeHelper::humanize(1000000000000000000000000000000000000, 0));
     }
 
     public function testUnhumanize()
     {
-        self::assertEquals(FileSizeHelper::unhumanize('1KB'), 1024);
-        self::assertEquals(FileSizeHelper::unhumanize('953.67MB'), 999995474);
-        self::assertEquals(FileSizeHelper::unhumanize('954MB'), 1000341504);
+        self::assertEquals(1024, FileSizeHelper::unhumanize('1KB'));
+        self::assertEquals(999995474, FileSizeHelper::unhumanize('953.67MB'));
+        self::assertEquals(1000341504, FileSizeHelper::unhumanize('954MB'));
     }
 }

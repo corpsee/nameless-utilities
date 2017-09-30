@@ -32,7 +32,7 @@ class FileSizeHelper
     ) {
         $power = 0;
         $temp  = $bytes;
-        $count = count($sizes);
+        $count = (count($sizes) - 1);
         for ($i = 0; $i < $count; $i++) {
             if ($temp < 1024) {
                 break;
@@ -42,11 +42,7 @@ class FileSizeHelper
             }
         }
 
-        if (isset($sizes[$power])) {
-            $humanize = sprintf("%.{$decimals}f", ($bytes / pow(1024, $power))) . $sizes[$power];
-        } else {
-            $humanize = sprintf("%i", $bytes) . 'B';
-        }
+        $humanize = sprintf("%.{$decimals}f", ($bytes / pow(1024, $power))) . $sizes[$power];
 
         return $humanize;
     }
@@ -65,17 +61,14 @@ class FileSizeHelper
 
         $sizes_power = [];
         foreach ($sizes as $index => $size) {
-            if (0 !== $index) {
-                $sizes_power[$size] = pow(1024, $index);
-            } else {
-                $sizes_power[$size] = 1;
-            }
+            $sizes_power[$size] = pow(1024, $index);
         }
 
         $bytes = (float)$size_string;
 
         $pattern = implode('|', $sizes);
-        if (preg_match('#(' . $pattern . ')$#si', $size_string, $matches) &&
+        if (
+            preg_match('#(' . $pattern . ')$#si', $size_string, $matches) &&
             $matches[1] &&
             isset($sizes_power[$matches[1]])
         ) {
