@@ -54,7 +54,6 @@ class DateTimeHelper
         foreach ($periods as $secs => $index) {
             $count   = $seconds / $secs;
             if ($count >= 1) {
-
                 $count     = (integer)round($count);
                 $seconds   -= $count * $secs;
                 $humanized .= $count . ' ' . ($count > 1 ? $format[$index][1] : $format[$index][0]) . ' ';
