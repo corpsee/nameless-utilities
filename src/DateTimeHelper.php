@@ -27,6 +27,8 @@ class DateTimeHelper
     public static function humanize(
         $seconds,
         $format = [
+            ['microsecond', 'microseconds'],
+            ['millisecond', 'milliseconds'],
             ['second', 'seconds'],
             ['minute', 'minutes'],
             ['hour', 'hours'],
@@ -35,23 +37,24 @@ class DateTimeHelper
             ['year', 'years']
         ]
     ) {
-        if ($seconds < 1) {
-            return '0 ' . $format[0];
-        }
+        $seconds = $seconds * 1000000;
 
         $periods = [
-            365 * 24 * 60 * 60 => 5,
-            30 * 24 * 60 * 60  => 4,
-            24 * 60 * 60       => 3,
-            60 * 60            => 2,
-            60                 => 1,
-            1                  => 0
+            365 * 24 * 60 * 60 * 1000000 => 7,
+            30 * 24 * 60 * 60 * 1000000  => 6,
+            24 * 60 * 60 * 1000000       => 5,
+            60 * 60 * 1000000            => 4,
+            60 * 1000000                 => 3,
+            1000000                      => 2,
+            1000                         => 1,
+            1                            => 0,
         ];
 
         $humanized = '';
         foreach ($periods as $secs => $index) {
             $count   = $seconds / $secs;
             if ($count >= 1) {
+
                 $count     = (integer)round($count);
                 $seconds   -= $count * $secs;
                 $humanized .= $count . ' ' . ($count > 1 ? $format[$index][1] : $format[$index][0]) . ' ';
