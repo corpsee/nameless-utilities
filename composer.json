@@ -1,16 +1,30 @@
 {
-  "name":        "corpsee/nameless-utilities",
-  "description": "Nameless utilities",
+  "name":              "corpsee/nameless-utilities",
+  "description":       "Utilities compliant with PSR-1, PSR-2, PSR-4 and Composer for PHP.",
+  "minimum-stability": "stable",
+  "type":              "library",
+  "keywords":          ["php", "utilities", "helpers", "humanize", "transliterate", "standardize", "url"],
+  "homepage":          "https://github.com/corpsee/nameless-utilities",
   "license":     "GPL-3.0",
   "authors": [
     {
-      "name":  "Corpsee",
-      "email": "poisoncorpsee@gmail.com"
+      "name":     "Dmitry Khomutov",
+      "email":    "poisoncorpsee@gmail.com",
+      "homepage": "http://corpsee.com",
+      "role":     "Developer"
     }
   ],
+  "support": {
+    "issues": "https://github.com/corpsee/nameless-utilities/issues",
+    "source": "https://github.com/corpsee/nameless-utilities"
+  },
   "autoload": {
     "psr-4": {
-      "Nameless\\Utilities\\":        "src",
+      "Nameless\\Utilities\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "Nameless\\Utilities\\Tests\\": "tests/src"
     }
   },
@@ -21,6 +35,7 @@
   "require-dev": {
     "symfony/yaml":                      "~2.1",
     "phpdocumentor/reflection-docblock": "~2.0",
+    "doctrine/instantiator":             "~1.0",
     "phpunit/phpunit":                   "4.8.*"
   }
 }
