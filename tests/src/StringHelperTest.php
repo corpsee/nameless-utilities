@@ -22,18 +22,23 @@ class StringHelperTest extends \PHPUnit_Framework_TestCase
     {
         self::assertTrue(StringHelper::contains('example', 'xampl'));
         self::assertTrue(StringHelper::contains('пример', 'им'));
+
+        self::assertFalse(StringHelper::contains('пример', 'рп'));
     }
 
     public function testCut()
     {
         self::assertEquals(StringHelper::cut('example', 6), 'exampl...');
         self::assertEquals(StringHelper::cut('пример', 3), 'при...');
+        self::assertEquals(StringHelper::cut('пример', 6), 'пример');
+        self::assertEquals(StringHelper::cut('пример', 7), 'пример');
     }
 
     public function testCutWords()
     {
         self::assertEquals(StringHelper::cutWords('simple example', 1), 'simple...');
         self::assertEquals(StringHelper::cutWords('очень простой пример', 2), 'очень простой...');
+        self::assertEquals(StringHelper::cutWords('очень простой', 3), 'очень простой');
     }
     
     public function testTransliterate()
