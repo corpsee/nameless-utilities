@@ -1,9 +1,10 @@
 [![PHP Censor](http://ci.php-censor.info/build-status/image/4?branch=master&label=PHPCensor&style=flat-square)](http://ci.php-censor.info/build-status/view/4?branch=master)
-[![Travis CI](https://img.shields.io/travis/corpsee/nameless-utilities/master.svg?label=Travis&style=flat-square)](https://travis-ci.org/corpsee/nameless-utilities?branch=master)
+[![Travis CI](https://img.shields.io/travis/corpsee/nameless-utilities/master.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/corpsee/nameless-utilities?branch=master)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/b0f43135-8362-4601-8a11-aff023fe3815.svg?label=Insight&style=flat-square)](https://insight.sensiolabs.com/projects/b0f43135-8362-4601-8a11-aff023fe3815)
+[![Codecov](https://img.shields.io/codecov/c/github/corpsee/nameless-utilities.svg?label=Codecov&style=flat-square)](https://codecov.io/gh/corpsee/nameless-utilities)
 [![Latest Version](https://img.shields.io/packagist/v/corpsee/nameless-utilities.svg?label=Version&style=flat-square)](https://packagist.org/packages/corpsee/nameless-utilities)
 [![Total downloads](https://img.shields.io/packagist/dt/corpsee/nameless-utilities.svg?label=Downloads&style=flat-square)](https://packagist.org/packages/corpsee/nameless-utilities)
 [![License](https://img.shields.io/packagist/l/corpsee/nameless-utilities.svg?label=License&style=flat-square)](https://packagist.org/packages/corpsee/nameless-utilities)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/b0f43135-8362-4601-8a11-aff023fe3815.svg?label=Insight&style=flat-square)](https://insight.sensiolabs.com/projects/b0f43135-8362-4601-8a11-aff023fe3815)
 
 Nameless utilities
 ==================
