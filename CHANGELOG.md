@@ -5,6 +5,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.1](https://github.com/corpsee/nameless-utilities/tree/2.0.1) (2018-01-07)
+
+[Full Changelog](https://github.com/corpsee/nameless-utilities/compare/2.0.0...2.0.1)
+
+### Added
+
+- Code coverage to TravisCI configuration (For [codecov.io](https://codecov.io)).
+- PHP 7.2 to TravisCI configuration.
+- File `.editorconfig`. See: [editorconfig.org](http://editorconfig.org).
+- File `CHANGELOG.md`.
+
+### Changed
+
+- Updated dependencies.
+
+
 ## [2.0.0](https://github.com/corpsee/nameless-utilities/tree/2.0.0) (2017-09-30)
 
 [Full Changelog](https://github.com/corpsee/nameless-utilities/compare/release-1.0...2.0.0)
