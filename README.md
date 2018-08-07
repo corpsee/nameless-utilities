@@ -119,6 +119,47 @@ use Nameless\Utilities\UrlHelper;
 echo UrlHelper::toPath('/path/to/url', '/base'); // Prints '/base/path/to/url'
 ```
 
+### BcMathHelper
+
+Passing values of type float to a BCMath function which expects a string as operand may not have the desired effect 
+due to the way PHP converts float values to string, namely that the string may be in exponential notation (what is not 
+supported by BCMath), and that the decimal separator is locale depended (while BCMath always expects a decimal point). 
+
+```php
+<?php
+
+$num1 = 0;         // (string) 0 => '0'
+$num2 = -0.000005; // (string) -0.000005 => '-5.05E-6'
+
+echo bcadd($num1, $num2, 6); // => '0.000000'
+
+setlocale(LC_NUMERIC, 'de_DE'); // uses a decimal comma
+$num2 = 1.2;                    // (string) 1.2 => '1,2'
+
+echo bcsub($num1, $num2, 1);    // => '0.0'
+
+?>
+```
+
+BcMathHelper solve problem with floats to strings converting and "," as decimal separator for BcMath functions:
+
+```php
+use Nameless\Utilities\BcMathHelper;
+
+var_dump(BcMathHelper::add('0.000005', '0.000005', 5));  // (float)0.00001
+var_dump(BcMathHelper::add('0,000005', '0,000005', 5));  // (float)0.00001
+var_dump(BcMathHelper::add(0.000005, 0.000005, 5));  // (float)0.00001
+var_dump(BcMathHelper::add('5.0E-6', '5.0E-7', 5));  // (float)0.00001
+
+var_dump(BcMathHelper::sub(0.000005, 0.000001, 5));  // (float)0.000004
+
+var_dump(BcMathHelper::mul(0.000005, 0.000002, 11));  // (float)0.00000000001
+
+var_dump(BcMathHelper::div(0.000005, 0.000002, 2));  // (float)2.50
+
+var_dump(BcMathHelper::comp(0.000005, 0.000002, 6));  // (int)1
+```
+
 Tests
 -----
 

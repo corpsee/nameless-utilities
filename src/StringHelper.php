@@ -63,6 +63,7 @@ class StringHelper
         if (mb_strlen($string, 'UTF-8') <= $limit) {
             return $string;
         }
+
         return rtrim(mb_substr($string, 0, $limit, 'UTF-8')) . $append;
     }
 
@@ -79,6 +80,7 @@ class StringHelper
         if (!isset($matches[0]) || mb_strlen($string, 'UTF-8') === mb_strlen($matches[0], 'UTF-8')) {
             return $string;
         }
+
         return rtrim($matches[0]) . $append;
     }
 
@@ -307,7 +309,7 @@ class StringHelper
     public static function toArray($string, $delimiter = ',')
     {
         $array_temp = explode($delimiter, $string);
-        $array      = [];
+        $array = [];
         foreach ($array_temp as $item) {
             $item_clear = trim($item);
             if ($item_clear) {

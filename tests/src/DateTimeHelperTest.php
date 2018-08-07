@@ -24,7 +24,7 @@ class DateTimeHelperTest extends \PHPUnit_Framework_TestCase
                     ['ч', 'ч'],
                     ['д', 'д'],
                     ['мес', 'мес'],
-                    ['г', 'г']
+                    ['г', 'г'],
                 ]
             ),
             '2 мин 1 с'

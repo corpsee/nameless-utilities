@@ -11,7 +11,7 @@ class StringHelperTest extends \PHPUnit_Framework_TestCase
         self::assertTrue(StringHelper::startWith('example', 'exa'));
         self::assertTrue(StringHelper::startWith('пример', 'пр'));
     }
-    
+
     public function testEndWith()
     {
         self::assertTrue(StringHelper::endWith('example', 'ample'));
@@ -40,13 +40,13 @@ class StringHelperTest extends \PHPUnit_Framework_TestCase
         self::assertEquals(StringHelper::cutWords('очень простой пример', 2), 'очень простой...');
         self::assertEquals(StringHelper::cutWords('очень простой', 3), 'очень простой');
     }
-    
+
     public function testTransliterate()
     {
         self::assertEquals(StringHelper::transliterate('очень простой пример'), 'ochen prostoj primer');
         self::assertEquals(StringHelper::transliterate('velmi jednoduchý příklad'), 'velmi jednoduchy priklad');
     }
-    
+
     public function testStandardize()
     {
         self::assertEquals(StringHelper::standardize('очень простой   Пример', '-'), 'ochen-prostoj-primer');
