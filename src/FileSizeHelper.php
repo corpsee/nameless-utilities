@@ -63,9 +63,9 @@ class FileSizeHelper
     {
         $sizeString = trim($sizeString);
 
-        $sizes_power = [];
+        $sizesPower = [];
         foreach ($sizes as $index => $size) {
-            $sizes_power[$size] = pow(1024, $index);
+            $sizesPower[$size] = pow(1024, $index);
         }
 
         $bytes = (float)$sizeString;
@@ -74,9 +74,9 @@ class FileSizeHelper
         if (
             preg_match('#(' . $pattern . ')$#si', $sizeString, $matches) &&
             $matches[1] &&
-            isset($sizes_power[$matches[1]])
+            isset($sizesPower[$matches[1]])
         ) {
-            $bytes *= $sizes_power[$matches[1]];
+            $bytes *= $sizesPower[$matches[1]];
         }
 
         return (integer)round($bytes);

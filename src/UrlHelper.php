@@ -22,14 +22,14 @@ class UrlHelper
 {
     /**
      * @param string $url
-     * @param string $public_path
+     * @param string $publicPath
      *
      * @return string
      */
-    public static function toPath(string $url, string $public_path): string
+    public static function toPath(string $url, string $publicPath): string
     {
-        $unix_public = rtrim(str_replace('\\', '/', $public_path), '\\/') . '/';
+        $unixPublic = rtrim(str_replace('\\', '/', $publicPath), '\\/') . '/';
 
-        return $unix_public . ltrim($url, '/');
+        return $unixPublic . ltrim($url, '/');
     }
 }

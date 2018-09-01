@@ -22,15 +22,15 @@ class PathHelper
 {
     /**
      * @param string $path
-     * @param string $public_path
+     * @param string $publicPath
      *
      * @return string
      */
-    public static function toURL(string $path, string $public_path): string
+    public static function toURL(string $path, string $publicPath): string
     {
-        $unix_public = rtrim(str_replace('\\', '/', $public_path), '\\/') . '/';
+        $unixPublic = rtrim(str_replace('\\', '/', $publicPath), '\\/') . '/';
         $path = str_replace('\\', '/', $path);
 
-        return str_replace([$unix_public], '/', $path);
+        return str_replace([$unixPublic], '/', $path);
     }
 }

@@ -104,9 +104,9 @@ var_dump(StringHelper::contains('example', 'xampl')); // Prints true
 echo StringHelper::cut('example', 6);             // Prints 'exampl...', '...' is default suffix
 echo StringHelper::cutWords('simple example', 1); // Prints 'example...', '...' is default suffix
 
-echo StringHelper::transliterate('очень простой пример');     // Prints transliterated 'ochen prostoj primer'
-echo StringHelper::standardize('очень простой  Пример');      // Prints standardizated 'ochen_prostoj_primer', '_' is default words separator
-echo StringHelper::standardize('очень простой  Пример', '-'); // Prints 'ochen-prostoj-primer', use '-' for slugify string
+echo StringHelper::transliterate('очень простой пример', 'Russian-Latin/BGN');     // Prints transliterated 'ochen prostoj primer'
+echo StringHelper::standardize('очень простой  Пример', 'Russian-Latin/BGN');      // Prints standardizated 'ochen_prostoj_primer', '_' is default words separator
+echo StringHelper::standardize('очень простой  Пример', 'Russian-Latin/BGN', '-'); // Prints 'ochen-prostoj-primer', use '-' for slugify string
 
 var_dump(StringHelper::toArray('1,2,3,')); // Prints Array ['1', '2', '3'], ',' is default separator
 ```
