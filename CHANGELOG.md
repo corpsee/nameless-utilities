@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.0.0](https://github.com/corpsee/nameless-utilities/tree/3.0.0) (2018-09-01)
+
+[Full Changelog](https://github.com/corpsee/nameless-utilities/compare/2.1.0...3.0.0)
+
+### Changed
+
+- Upgraded minimal PHP version to 7.1.
+- Refactored `StringHelper::transliterate` method (Required `ext-intl` extension).
+
+
 ## [2.1.0](https://github.com/corpsee/nameless-utilities/tree/2.1.0) (2018-09-01)
 
 [Full Changelog](https://github.com/corpsee/nameless-utilities/compare/2.0.1...2.1.0)
