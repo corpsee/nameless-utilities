@@ -3,8 +3,9 @@
 namespace Nameless\Utilities\Tests;
 
 use Nameless\Utilities\StringHelper;
+use PHPUnit\Framework\TestCase;
 
-class StringHelperTest extends \PHPUnit_Framework_TestCase
+class StringHelperTest extends TestCase
 {
     public function testStartWith()
     {
@@ -44,26 +45,26 @@ class StringHelperTest extends \PHPUnit_Framework_TestCase
     public function testTransliterate()
     {
         self::assertEquals(
-            'ochen prostoj primer',
-            StringHelper::transliterate('очень простой пример')
+            'ochenʹ prostoy primer',
+            StringHelper::transliterate('очень простой пример', StringHelper::RUSSIAN_RULES)
         );
 
         self::assertEquals(
             'velmi jednoduchy priklad',
-            StringHelper::transliterate('velmi jednoduchý příklad')
+            StringHelper::transliterate('velmi jednoduchý příklad', 'Latin-ASCII')
         );
     }
 
     public function testStandardize()
     {
         self::assertEquals(
-            'ochen-prostoj-primer',
-            StringHelper::standardize('очень простой   Пример', '-')
+            'ochen-prostoy-primer',
+            StringHelper::standardize('очень простой   Пример', StringHelper::RUSSIAN_RULES, '-')
         );
 
         self::assertEquals(
             'velmi_jednoduchy_priklad',
-            StringHelper::standardize(' Velmi:;+ Jednoduchý___příklad  ')
+            StringHelper::standardize(' Velmi:;+ Jednoduchý___příklad  ', 'Latin-ASCII')
         );
     }
 

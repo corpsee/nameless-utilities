@@ -3,8 +3,9 @@
 namespace Nameless\Utilities\Tests;
 
 use Nameless\Utilities\ArrayHelper;
+use PHPUnit\Framework\TestCase;
 
-class ArrayHelperTest extends \PHPUnit_Framework_TestCase
+class ArrayHelperTest extends TestCase
 {
     public function testToString()
     {

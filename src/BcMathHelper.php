@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -19,19 +21,19 @@ namespace Nameless\Utilities;
 class BcMathHelper
 {
     /**
-     * @param mixed $left_operand
-     * @param mixed $right_operand
+     * @param mixed $leftOperand
+     * @param mixed $rightOperand
      *
      * @return array
      */
-    protected static function normalizeArgs($left_operand, $right_operand)
+    protected static function normalizeArgs($leftOperand, $rightOperand): array
     {
-        $left_operand = self::normalizeNumber($left_operand);
-        $right_operand = self::normalizeNumber($right_operand);
+        $leftOperand  = self::normalizeNumber($leftOperand);
+        $rightOperand = self::normalizeNumber($rightOperand);
 
         return [
-            $left_operand,
-            $right_operand,
+            $leftOperand,
+            $rightOperand,
         ];
     }
 
@@ -40,7 +42,7 @@ class BcMathHelper
      *
      * @return string
      */
-    public static function normalizeNumber($number)
+    public static function normalizeNumber($number): string
     {
         $number = str_replace([',', ' '], ['.', ''], (string)$number);
 
@@ -48,99 +50,99 @@ class BcMathHelper
             (($e = strrchr($number, 'e')) !== false) ||
             (($e = strrchr($number, 'E')) !== false)
         ) {
-            $number = number_format($number, -intval(substr($e, 1)));
+            $number = number_format((float)$number, -intval(substr($e, 1)));
         }
 
         return $number;
     }
 
     /**
-     * @param mixed    $left_operand
-     * @param mixed    $right_operand
+     * @param mixed    $leftOperand
+     * @param mixed    $rightOperand
      * @param int|null $scale
      *
      * @return float
      */
-    public static function add($left_operand, $right_operand, $scale = null)
+    public static function add($leftOperand, $rightOperand, ?int $scale = null): float
     {
-        list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
+        list($leftOperand, $rightOperand) = self::normalizeArgs($leftOperand, $rightOperand);
 
         if (null === $scale) {
-            return (float)bcadd($left_operand, $right_operand);
+            return (float)bcadd($leftOperand, $rightOperand);
         }
 
-        return (float)bcadd($left_operand, $right_operand, $scale);
+        return (float)bcadd($leftOperand, $rightOperand, $scale);
     }
 
     /**
-     * @param mixed    $left_operand
-     * @param mixed    $right_operand
+     * @param mixed    $leftOperand
+     * @param mixed    $rightOperand
      * @param int|null $scale
      *
      * @return float
      */
-    public static function sub($left_operand, $right_operand, $scale = null)
+    public static function sub($leftOperand, $rightOperand, ?int $scale = null): float
     {
-        list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
+        list($leftOperand, $rightOperand) = self::normalizeArgs($leftOperand, $rightOperand);
 
         if (null === $scale) {
-            return (float)bcsub($left_operand, $right_operand);
+            return (float)bcsub($leftOperand, $rightOperand);
         }
 
-        return (float)bcsub($left_operand, $right_operand, $scale);
+        return (float)bcsub($leftOperand, $rightOperand, $scale);
     }
 
     /**
-     * @param mixed    $left_operand
-     * @param mixed    $right_operand
+     * @param mixed    $leftOperand
+     * @param mixed    $rightOperand
      * @param int|null $scale
      *
      * @return float
      */
-    public static function mul($left_operand, $right_operand, $scale = null)
+    public static function mul($leftOperand, $rightOperand, ?int $scale = null): float
     {
-        list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
+        list($leftOperand, $rightOperand) = self::normalizeArgs($leftOperand, $rightOperand);
 
         if (null === $scale) {
-            return (float)bcmul($left_operand, $right_operand);
+            return (float)bcmul($leftOperand, $rightOperand);
         }
 
-        return (float)bcmul($left_operand, $right_operand, $scale);
+        return (float)bcmul($leftOperand, $rightOperand, $scale);
     }
 
     /**
-     * @param mixed    $left_operand
-     * @param mixed    $right_operand
+     * @param mixed    $leftOperand
+     * @param mixed    $rightOperand
      * @param int|null $scale
      *
      * @return float
      */
-    public static function div($left_operand, $right_operand, $scale = null)
+    public static function div($leftOperand, $rightOperand, ?int $scale = null): float
     {
-        list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
+        list($leftOperand, $rightOperand) = self::normalizeArgs($leftOperand, $rightOperand);
 
         if (null === $scale) {
-            return (float)bcdiv($left_operand, $right_operand);
+            return (float)bcdiv($leftOperand, $rightOperand);
         }
 
-        return (float)bcdiv($left_operand, $right_operand, $scale);
+        return (float)bcdiv($leftOperand, $rightOperand, $scale);
     }
 
     /**
-     * @param mixed    $left_operand
-     * @param mixed    $right_operand
+     * @param mixed    $leftOperand
+     * @param mixed    $rightOperand
      * @param int|null $scale
      *
      * @return int
      */
-    public static function comp($left_operand, $right_operand, $scale = null)
+    public static function comp($leftOperand, $rightOperand, ?int $scale = null): int
     {
-        list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
+        list($leftOperand, $rightOperand) = self::normalizeArgs($leftOperand, $rightOperand);
 
         if (null === $scale) {
-            return (int)bccomp($left_operand, $right_operand);
+            return (int)bccomp($leftOperand, $rightOperand);
         }
 
-        return (int)bccomp($left_operand, $right_operand, $scale);
+        return (int)bccomp($leftOperand, $rightOperand, $scale);
     }
 }

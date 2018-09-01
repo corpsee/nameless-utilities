@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -19,14 +21,14 @@ namespace Nameless\Utilities;
 class DateTimeHelper
 {
     /**
-     * @param integer $seconds
-     * @param array   $format
+     * @param integer|float $seconds
+     * @param array         $format
      *
      * @return string
      */
     public static function humanize(
         $seconds,
-        $format = [
+        array $format = [
             ['microsecond', 'microseconds'],
             ['millisecond', 'milliseconds'],
             ['second', 'seconds'],
@@ -36,7 +38,8 @@ class DateTimeHelper
             ['month', 'months'],
             ['year', 'years'],
         ]
-    ) {
+    ): string
+    {
         $seconds = $seconds * 1000000;
 
         $periods = [

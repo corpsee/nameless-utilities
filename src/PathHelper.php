@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -20,15 +22,15 @@ class PathHelper
 {
     /**
      * @param string $path
-     * @param string $public_path
+     * @param string $publicPath
      *
      * @return string
      */
-    public static function toURL($path, $public_path)
+    public static function toURL(string $path, string $publicPath): string
     {
-        $unix_public = rtrim(str_replace('\\', '/', $public_path), '\\/') . '/';
+        $unixPublic = rtrim(str_replace('\\', '/', $publicPath), '\\/') . '/';
         $path = str_replace('\\', '/', $path);
 
-        return str_replace([$unix_public], '/', $path);
+        return str_replace([$unixPublic], '/', $path);
     }
 }

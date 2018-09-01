@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -38,7 +40,7 @@ class ArrayHelper
      *
      * @return string
      */
-    public static function toString(array $array, $delimiter = ', ')
+    public static function toString(array $array, string $delimiter = ', '): string
     {
         if (!$array) {
             return '';
