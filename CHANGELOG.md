@@ -68,6 +68,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Upgraded minimal PHP version to 5.6.
 
 
+## [1.0.5](https://github.com/corpsee/nameless-utilities/tree/1.0.5) (2018-09-01)
+
+[Full Changelog](https://github.com/corpsee/nameless-utilities/compare/1.0.4...1.0.5)
+
+### Changed
+
+- Updated dependencies.
+
+
 ## [1.0.4](https://github.com/corpsee/nameless-utilities/tree/1.0.4) (2017-09-30)
 
 [Full Changelog](https://github.com/corpsee/nameless-utilities/compare/1.0.3...1.0.4)
