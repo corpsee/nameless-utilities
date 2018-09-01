@@ -63,6 +63,7 @@ class StringHelper
         if (mb_strlen($string, 'UTF-8') <= $limit) {
             return $string;
         }
+
         return rtrim(mb_substr($string, 0, $limit, 'UTF-8')) . $append;
     }
 
@@ -79,6 +80,7 @@ class StringHelper
         if (!isset($matches[0]) || mb_strlen($string, 'UTF-8') === mb_strlen($matches[0], 'UTF-8')) {
             return $string;
         }
+
         return rtrim($matches[0]) . $append;
     }
 
@@ -307,7 +309,7 @@ class StringHelper
     public static function toArray($string, $delimiter = ',')
     {
         $array_temp = explode($delimiter, $string);
-        $array      = [];
+        $array = [];
         foreach ($array_temp as $item) {
             $item_clear = trim($item);
             if ($item_clear) {
@@ -316,5 +318,45 @@ class StringHelper
         }
 
         return $array;
+    }
+
+    /**
+     * @param string $string
+     * @param bool   $lower
+     *
+     * @return string
+     */
+    public static function snakecaseToCamelcase($string, $lower = false)
+    {
+        $words = explode('_', $string);
+
+        array_walk($words, function (&$word, $index) {
+            $word = ucfirst($word);
+        });
+
+        if ($lower) {
+            return lcfirst(implode($words));
+        }
+
+        return implode($words);
+    }
+
+    /**
+     * @param $string
+     *
+     * @return string
+     */
+    public static function camelcaseToSnakecase($string)
+    {
+        preg_match_all('!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!', $string, $matches);
+
+        $words = $matches[0];
+        foreach ($words as &$word) {
+            $word = ($word == strtoupper($word))
+                ? strtolower($word)
+                : lcfirst($word);
+        }
+
+        return implode('_', $words);
     }
 }

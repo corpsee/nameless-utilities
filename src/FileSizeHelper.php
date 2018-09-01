@@ -31,7 +31,7 @@ class FileSizeHelper
         array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
     ) {
         $power = 0;
-        $temp  = $bytes;
+        $temp = $bytes;
         $count = (count($sizes) - 1);
         for ($i = 0; $i < $count; $i++) {
             if ($temp < 1024) {

@@ -27,7 +27,7 @@ class PathHelper
     public static function toURL($path, $public_path)
     {
         $unix_public = rtrim(str_replace('\\', '/', $public_path), '\\/') . '/';
-        $path        = str_replace('\\', '/', $path);
+        $path = str_replace('\\', '/', $path);
 
         return str_replace([$unix_public], '/', $path);
     }

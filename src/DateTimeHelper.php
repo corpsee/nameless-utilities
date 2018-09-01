@@ -34,7 +34,7 @@ class DateTimeHelper
             ['hour', 'hours'],
             ['day', 'days'],
             ['month', 'months'],
-            ['year', 'years']
+            ['year', 'years'],
         ]
     ) {
         $seconds = $seconds * 1000000;
@@ -52,10 +52,10 @@ class DateTimeHelper
 
         $humanized = '';
         foreach ($periods as $secs => $index) {
-            $count   = $seconds / $secs;
+            $count = $seconds / $secs;
             if ($count >= 1) {
-                $count     = (integer)round($count);
-                $seconds   -= $count * $secs;
+                $count = (integer)round($count);
+                $seconds -= $count * $secs;
                 $humanized .= $count . ' ' . ($count > 1 ? $format[$index][1] : $format[$index][0]) . ' ';
             }
         }
