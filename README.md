@@ -109,6 +109,10 @@ echo StringHelper::standardize('очень простой  Пример', 'Russi
 echo StringHelper::standardize('очень простой  Пример', 'Russian-Latin/BGN', '-'); // Prints 'ochen-prostoj-primer', use '-' for slugify string
 
 var_dump(StringHelper::toArray('1,2,3,')); // Prints Array ['1', '2', '3'], ',' is default separator
+
+echo StringHelper::snakecaseToCamelcase('snake_case');       // Prints 'SnakeCase'
+echo StringHelper::snakecaseToCamelcase('snake_case', true); // Prints 'snakeCase'
+echo StringHelper::camelcaseToSnakecase('CamelCase');        // Prints 'camel_case'
 ```
 
 ### UrlHelper
