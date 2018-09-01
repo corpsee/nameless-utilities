@@ -319,4 +319,44 @@ class StringHelper
 
         return $array;
     }
+
+    /**
+     * @param string $string
+     * @param bool   $lower
+     *
+     * @return string
+     */
+    public static function snakecaseToCamelcase($string, $lower = false)
+    {
+        $words = explode('_', $string);
+
+        array_walk($words, function (&$word, $index) {
+            $word = ucfirst($word);
+        });
+
+        if ($lower) {
+            return lcfirst(implode($words));
+        }
+
+        return implode($words);
+    }
+
+    /**
+     * @param $string
+     *
+     * @return string
+     */
+    public static function camelcaseToSnakecase($string)
+    {
+        preg_match_all('!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!', $string, $matches);
+
+        $words = $matches[0];
+        foreach ($words as &$word) {
+            $word = ($word == strtoupper($word))
+                ? strtolower($word)
+                : lcfirst($word);
+        }
+
+        return implode('_', $words);
+    }
 }
