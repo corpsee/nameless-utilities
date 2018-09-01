@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -24,7 +26,7 @@ class StringHelper
      *
      * @return boolean
      */
-    public static function startWith($haystack, $needle)
+    public static function startWith(string $haystack, string $needle): bool
     {
         return ($needle === mb_substr($haystack, 0, mb_strlen($needle, 'UTF-8'), 'UTF-8'));
     }
@@ -35,7 +37,7 @@ class StringHelper
      *
      * @return boolean
      */
-    public static function endWith($haystack, $needle)
+    public static function endWith(string $haystack, string $needle): bool
     {
         return ($needle === mb_substr($haystack, -mb_strlen($needle, 'UTF-8'), null, 'UTF-8'));
     }
@@ -46,9 +48,9 @@ class StringHelper
      *
      * @return boolean
      */
-    public static function contains($haystack, $needle)
+    public static function contains(string $haystack, string $needle): bool
     {
-        return mb_strpos($haystack, $needle, null, 'UTF-8') !== false;
+        return mb_strpos($haystack, $needle, 0, 'UTF-8') !== false;
     }
 
     /**
@@ -58,7 +60,7 @@ class StringHelper
      *
      * @return string
      */
-    public static function cut($string, $limit = 25, $append = '...')
+    public static function cut(string $string, int $limit = 25, string $append = '...'): string
     {
         if (mb_strlen($string, 'UTF-8') <= $limit) {
             return $string;
@@ -74,7 +76,7 @@ class StringHelper
      *
      * @return string
      */
-    public static function cutWords($string, $limit = 25, $append = '...')
+    public static function cutWords(string $string, int $limit = 25, string $append = '...'): string
     {
         preg_match('/^\s*+(?:\S++\s*+){1,' . $limit . '}/u', $string, $matches);
         if (!isset($matches[0]) || mb_strlen($string, 'UTF-8') === mb_strlen($matches[0], 'UTF-8')) {
@@ -89,7 +91,7 @@ class StringHelper
      *
      * @return string
      */
-    public static function transliterate($string)
+    public static function transliterate(string $string): string
     {
         $transliterate_table = [
             // Lower accents
@@ -291,7 +293,7 @@ class StringHelper
      *
      * @return string
      */
-    public static function standardize($string, $separator = '_')
+    public static function standardize(string $string, string $separator = '_'): string
     {
         $string = self::transliterate($string);
         $string = trim($string);
@@ -306,7 +308,7 @@ class StringHelper
      *
      * @return array
      */
-    public static function toArray($string, $delimiter = ',')
+    public static function toArray(string $string, string $delimiter = ','): array
     {
         $array_temp = explode($delimiter, $string);
         $array = [];
@@ -326,7 +328,7 @@ class StringHelper
      *
      * @return string
      */
-    public static function snakecaseToCamelcase($string, $lower = false)
+    public static function snakecaseToCamelcase(string $string, bool $lower = false): string
     {
         $words = explode('_', $string);
 
@@ -346,7 +348,7 @@ class StringHelper
      *
      * @return string
      */
-    public static function camelcaseToSnakecase($string)
+    public static function camelcaseToSnakecase(string $string): string
     {
         preg_match_all('!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!', $string, $matches);
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -24,9 +26,9 @@ class BcMathHelper
      *
      * @return array
      */
-    protected static function normalizeArgs($left_operand, $right_operand)
+    protected static function normalizeArgs($left_operand, $right_operand): array
     {
-        $left_operand = self::normalizeNumber($left_operand);
+        $left_operand  = self::normalizeNumber($left_operand);
         $right_operand = self::normalizeNumber($right_operand);
 
         return [
@@ -40,7 +42,7 @@ class BcMathHelper
      *
      * @return string
      */
-    public static function normalizeNumber($number)
+    public static function normalizeNumber($number): string
     {
         $number = str_replace([',', ' '], ['.', ''], (string)$number);
 
@@ -48,7 +50,7 @@ class BcMathHelper
             (($e = strrchr($number, 'e')) !== false) ||
             (($e = strrchr($number, 'E')) !== false)
         ) {
-            $number = number_format($number, -intval(substr($e, 1)));
+            $number = number_format((float)$number, -intval(substr($e, 1)));
         }
 
         return $number;
@@ -61,7 +63,7 @@ class BcMathHelper
      *
      * @return float
      */
-    public static function add($left_operand, $right_operand, $scale = null)
+    public static function add($left_operand, $right_operand, ?int $scale = null): float
     {
         list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
 
@@ -79,7 +81,7 @@ class BcMathHelper
      *
      * @return float
      */
-    public static function sub($left_operand, $right_operand, $scale = null)
+    public static function sub($left_operand, $right_operand, ?int $scale = null): float
     {
         list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
 
@@ -97,7 +99,7 @@ class BcMathHelper
      *
      * @return float
      */
-    public static function mul($left_operand, $right_operand, $scale = null)
+    public static function mul($left_operand, $right_operand, ?int $scale = null): float
     {
         list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
 
@@ -115,7 +117,7 @@ class BcMathHelper
      *
      * @return float
      */
-    public static function div($left_operand, $right_operand, $scale = null)
+    public static function div($left_operand, $right_operand, ?int $scale = null): float
     {
         list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
 
@@ -133,7 +135,7 @@ class BcMathHelper
      *
      * @return int
      */
-    public static function comp($left_operand, $right_operand, $scale = null)
+    public static function comp($left_operand, $right_operand, ?int $scale = null): int
     {
         list($left_operand, $right_operand) = self::normalizeArgs($left_operand, $right_operand);
 

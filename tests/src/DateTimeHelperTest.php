@@ -3,8 +3,9 @@
 namespace Nameless\Utilities\Tests;
 
 use Nameless\Utilities\DateTimeHelper;
+use PHPUnit\Framework\TestCase;
 
-class DateTimeHelperTest extends \PHPUnit_Framework_TestCase
+class DateTimeHelperTest extends TestCase
 {
     public function testHumanize()
     {

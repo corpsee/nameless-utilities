@@ -3,8 +3,9 @@
 namespace Nameless\Utilities\Tests;
 
 use Nameless\Utilities\UrlHelper;
+use PHPUnit\Framework\TestCase;
 
-class UrlHelperTest extends \PHPUnit_Framework_TestCase
+class UrlHelperTest extends TestCase
 {
     public function testToPath()
     {

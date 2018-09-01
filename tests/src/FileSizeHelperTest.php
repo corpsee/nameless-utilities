@@ -3,8 +3,9 @@
 namespace Nameless\Utilities\Tests;
 
 use Nameless\Utilities\FileSizeHelper;
+use PHPUnit\Framework\TestCase;
 
-class FileSizeHelperTest extends \PHPUnit_Framework_TestCase
+class FileSizeHelperTest extends TestCase
 {
     public function testHumanize()
     {
@@ -12,14 +13,19 @@ class FileSizeHelperTest extends \PHPUnit_Framework_TestCase
 
         self::assertEquals('512' . $localParams['decimal_point'] . '00B', FileSizeHelper::humanize(512));
         self::assertEquals('1KB', FileSizeHelper::humanize(1024, 0));
+
         self::assertEquals(
             ('953' . $localParams['decimal_point'] . '67MB'),
             FileSizeHelper::humanize(1000000000)
         );
+
         self::assertEquals('954MB', FileSizeHelper::humanize(1000000000, 0));
+
         self::assertEquals(
             ('953' . $localParams['decimal_point'] . '6743MB'),
-            FileSizeHelper::humanize(1000000000, 4));
+            FileSizeHelper::humanize(1000000000, 4)
+        );
+
         self::assertEquals(
             '827180612553YB',
             FileSizeHelper::humanize(1000000000000000000000000000000000000, 0)

@@ -3,8 +3,9 @@
 namespace Nameless\Utilities\Tests;
 
 use Nameless\Utilities\BcMathHelper;
+use PHPUnit\Framework\TestCase;
 
-class BcMathHelperTest extends \PHPUnit_Framework_TestCase
+class BcMathHelperTest extends TestCase
 {
     protected function setUp()
     {
@@ -16,7 +17,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function testAddDataProvider()
+    public function addDataProvider()
     {
         return [
             [0.8, 0.7, 0.1, 1],
@@ -37,7 +38,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testAddDataProvider
+     * @dataProvider addDataProvider
      *
      * @param float $expected
      * @param mixed $leftOperand
@@ -54,7 +55,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function testSubDataProvider()
+    public function subDataProvider()
     {
         return [
             [0.6, 0.7, 0.1, 1],
@@ -75,7 +76,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testSubDataProvider
+     * @dataProvider subDataProvider
      *
      * @param float $expected
      * @param mixed $leftOperand
@@ -92,7 +93,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function testMulDataProvider()
+    public function mulDataProvider()
     {
         return [
             [0.14, 0.7, 0.2, 2],
@@ -113,7 +114,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testMulDataProvider
+     * @dataProvider mulDataProvider
      *
      * @param float $expected
      * @param mixed $leftOperand
@@ -130,7 +131,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function testDivDataProvider()
+    public function divDataProvider()
     {
         return [
             [3.85, 0.77, 0.2, 2],
@@ -151,7 +152,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testDivDataProvider
+     * @dataProvider divDataProvider
      *
      * @param float $expected
      * @param mixed $leftOperand
@@ -168,7 +169,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function testCompDataProvider()
+    public function compDataProvider()
     {
         return [
             [1, 0.77, 0.2, 2],
@@ -181,7 +182,7 @@ class BcMathHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testCompDataProvider
+     * @dataProvider compDataProvider
      *
      * @param float $expected
      * @param mixed $leftOperand

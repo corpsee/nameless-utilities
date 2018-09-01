@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -24,7 +26,7 @@ class UrlHelper
      *
      * @return string
      */
-    public static function toPath($url, $public_path)
+    public static function toPath(string $url, string $public_path): string
     {
         $unix_public = rtrim(str_replace('\\', '/', $public_path), '\\/') . '/';
 

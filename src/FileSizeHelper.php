@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Nameless utilities
  *
@@ -19,17 +21,18 @@ namespace Nameless\Utilities;
 class FileSizeHelper
 {
     /**
-     * @param integer $bytes
-     * @param integer $decimals
-     * @param array   $sizes
+     * @param integer|float $bytes
+     * @param integer       $decimals
+     * @param array         $sizes
      *
      * @return string
      */
     public static function humanize(
         $bytes,
-        $decimals = 2,
+        int $decimals = 2,
         array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    ) {
+    ): string
+    {
         $power = 0;
         $temp = $bytes;
         $count = (count($sizes) - 1);
@@ -48,27 +51,28 @@ class FileSizeHelper
     }
 
     /**
-     * @param string $size_string
+     * @param string $sizeString
      * @param array  $sizes
      *
      * @return integer
      */
     public static function unhumanize(
-        $size_string,
+        string $sizeString,
         array $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    ) {
-        $size_string = trim($size_string);
+    ): int
+    {
+        $sizeString = trim($sizeString);
 
         $sizes_power = [];
         foreach ($sizes as $index => $size) {
             $sizes_power[$size] = pow(1024, $index);
         }
 
-        $bytes = (float)$size_string;
+        $bytes = (float)$sizeString;
 
         $pattern = implode('|', $sizes);
         if (
-            preg_match('#(' . $pattern . ')$#si', $size_string, $matches) &&
+            preg_match('#(' . $pattern . ')$#si', $sizeString, $matches) &&
             $matches[1] &&
             isset($sizes_power[$matches[1]])
         ) {
