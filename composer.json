@@ -5,7 +5,7 @@
   "type":              "library",
   "keywords":          ["php", "utilities", "helpers", "humanize", "transliterate", "standardize", "url"],
   "homepage":          "https://github.com/corpsee/nameless-utilities",
-  "license":     "GPL-3.0",
+  "license":           "GPL-3.0-only",
   "authors": [
     {
       "name":     "Dmitry Khomutov",
