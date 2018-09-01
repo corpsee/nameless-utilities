@@ -19,6 +19,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Updated dependencies.
 
 
+## [2.0.2](https://github.com/corpsee/nameless-utilities/tree/2.0.2) (2018-09-01)
+
+[Full Changelog](https://github.com/corpsee/nameless-utilities/compare/2.0.1...2.0.2)
+
+### Changed
+
+- Updated dependencies.
+
+
 ## [2.0.1](https://github.com/corpsee/nameless-utilities/tree/2.0.1) (2018-01-07)
 
 [Full Changelog](https://github.com/corpsee/nameless-utilities/compare/2.0.0...2.0.1)
