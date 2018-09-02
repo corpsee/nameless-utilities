@@ -6,6 +6,6 @@
         ]
     },
     "logs": {
-        "text": ".\/tests\/runtime\/infection.log"
+        "text": "./tests/runtime/infection.log"
     }
 }
