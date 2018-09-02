@@ -1,2 +1,5 @@
 /vendor
 /composer.phar
+/composer.lock
+/tests/runtime/*
+!/tests/runtime/.gitkeep
