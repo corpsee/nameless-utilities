@@ -1,16 +1,16 @@
 build_settings:
     ignore:
-    - vendor
-    - tests
+        - vendor
+        - tests
 
 setup:
     composer:
-        action: install
+        action: update
 
 test:
     php_unit:
         config:
-        - phpunit.xml
+            - phpunit.xml
 
     php_mess_detector:
         allow_failures: true
@@ -33,7 +33,7 @@ test:
         allow_failures: true
 
     security_checker:
-        allow_failures: true
+        allow_failures: false
 
 complete:
     email:
