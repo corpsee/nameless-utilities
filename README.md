@@ -6,6 +6,8 @@
 [![Total downloads](https://img.shields.io/packagist/dt/corpsee/nameless-utilities.svg?label=Downloads&style=flat-square)](https://packagist.org/packages/corpsee/nameless-utilities)
 [![License](https://img.shields.io/packagist/l/corpsee/nameless-utilities.svg?label=License&style=flat-square)](https://packagist.org/packages/corpsee/nameless-utilities)
 
+**This package is abandoned and no longer maintained.**
+
 Nameless utilities
 ==================
 
